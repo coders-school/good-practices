@@ -8,7 +8,21 @@
 
 ___
 
-## Inicjalizowanie zmiennych. Praktycznie zawsze.
+## Zagadka
+
+Tomek dostał 3 jabłka, ale 2 zjadł. Ile jabłek ma Tomek?
+
+### Odpowiedź
+
+Nie wiadomo, bo nie wiemy ile miał wcześniej zanim dostał 3 jabłka.
+
+### Morał
+
+Zawsze inicjalizuj zmienne.
+
+___
+
+## Zawsze inicjalizuj zmienne
 
 ```cpp
 int index = 0;  // ok
@@ -19,6 +33,33 @@ struct Node {
     Node* next = nullptr;   // ok
     int value = 0;
 }
+```
+
+___
+
+## Definiuj własne typy
+
+Kod pełny nazw domenowych (własnych typów) lepiej się czyta. Także osoby nie zajmujące się programowaniem na co dzień potrafią dużo na jego podstawie wydedukować.
+
+Zobacze te 2 funkcje:
+
+```cpp
+std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array<uint8_t, width>, height>&);
+std::array<std::array<uint8_t, width>, height> decompressGrayscale(std::vector<std::pair<uint8_t, uint8_t>>&);
+```
+
+I zobacz je teraz:
+
+```cpp
+CompressedImage compressGrayscale(const Image& bitmap);
+Image decompressGrayscale(const CompressedImage& compression);
+```
+
+Aby to osiągnąć wystarczy nadać inne nazwy typom w taki sposób:
+
+```cpp
+using Image =  std::array<std::array<uint8_t, width>, height>;
+using CompressedImage =  std::vector<std::pair<uint8_t, uint8_t>>;
 ```
 
 ___

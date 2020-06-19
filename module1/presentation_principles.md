@@ -32,7 +32,7 @@ ___
 
 ## Fail-fast
 
-Jak najszybciej ubijaj program w przypadku problemów. Lepsze to niż działanie i wykrzaczenie się go z powodu Undefined Behaviour później. Powodzenia w szukaniu przyczyny w takim przypadku.
+Jak najszybciej ubijaj program w przypadku problemów. Lepsze to niż działanie i wykrzaczenie się go z powodu Undefined Behavior później. Powodzenia w szukaniu przyczyny w takim przypadku.
 
 ### Dozwolone rzeczy
 
@@ -49,6 +49,11 @@ void process(std::shared_ptr<int> value) {
 }
 ```
 
+#### Plusy
+
+* minimalizowanie UB (Undefined Behavior)
+* łatwiejsze debugowanie i szukanie przyczyn problemów
+
 ___
 
 ## Scout rule - zasada skauta
@@ -61,17 +66,39 @@ Jeśli dotkniesz czyjegoś kodu, np tylko dodając jedną linijkę - zobacz czy 
 
 Sprzątanie ma być w osobnym commicie.
 
+#### Plusy
+
+* kod może być tylko coraz czytelniejszy
+* nie robimy długu technicznego, który kiedyś trzeba będzie spałcić
+
 ___
 
 ## DRY
 
 ### Don't Repeat Yourself
 
+Często powielenia powstają wskutek prostej operacji kopipasty.
+
+Kod, który jest taki sam lub podobny w więcej niż 1 miejscu należy wydzielić do funkcji i wywoływać tę funkcję w tym miejscu
+
+#### Plusy
+
+* łatwiejszy refaktoring - zmiana tylko w jednym miejscu
+* mniej miejsca na błędy. Nie ma ryzyka, że po odkryciu błędu nie zmienimy wszystkich wystąpień
+
 ___
 
 ## DRTW
 
 ### Don't Reinvent The Wheel
+
+Nie wynajduj koła na nowa i używaj gotowych bibliotek dostarczających daną funkcjonalność. 
+
+Plusy:
+
+* zazwyczaj używasz już przetestowanego kodu
+* mniej miejsca na błędne implementacje - możesz nie wymyślić wszystkich przypadków testowych
+* oszczędność czasu
 
 ___
 
@@ -142,3 +169,9 @@ ___
 ___
 
 ## Q&A
+
+___
+
+## Zadanie
+
+Popraw kod stosując poznane zasady

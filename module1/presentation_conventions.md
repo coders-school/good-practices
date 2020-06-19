@@ -20,6 +20,71 @@ Jeśli jest więcej to trzeba wydzielić funkcjonalności do mniejszych funkcji.
 
 ___
 
+## Każdy blok (scope) = wcięcie
+
+Każdy zakres rozpoczynający się od nawiasu `{` (nawet jeśli go nie ma np. przy jednolinijkowych `if`, `for`) musi mieć dodatkowy poziom wcięcia.
+
+```cpp
+int addEven(const std::vector<int>& numbers)
+{
+    int sum{};
+    for (const auto& el: numbers)
+    {
+        if(el % 2 == 0)
+        sum = sum + el;     // bad, no additional indentation
+    }
+    return sum;
+ }
+ ```
+
+ ```cpp
+int addEven(const std::vector<int>& numbers)
+{
+    int sum{};
+    for (const auto& el: numbers)
+    {
+        if(el % 2 == 0)
+        {
+            sum = sum + el;     // indentation ok, braces added
+        }
+    }
+    return sum;
+ }
+ ```
+
+### Wyjątki
+
+* Często przy instrukcji `switch/case` spotkacie się z tym, że case jest na tym samym poziomie co switch. Nie uznajemy tego za błąd.
+  
+```cpp
+switch (value) {
+case 1: doSth();
+        break;
+default: doSthElse();
+}
+```
+
+* `namespace`
+* modyfikatory dostępu `public`, `protected`, `private`
+
+```cpp
+namespace shm {
+
+class Ship {
+public:
+    Ship() = default;
+    // ...
+
+private:
+    size_t maxCrew;
+    // ...
+}
+
+} // namespace shm
+```
+
+___
+
 ## Typu konwencji nazewniczych
 
 * lowerCamelCase
@@ -133,6 +198,35 @@ class SuperWarrior
 * nazwa pliku = nazwa klasy
 
 `class SuperWarrior` -> superWarrior.hpp / superWarrior.cpp
+
+___
+
+## Opisowe nazwy zmiennych
+
+Nie nazywajmy zmiennych tak:
+
+```cpp
+int a = 0;          // what is a?
+bool b = false;     // what is b?
+
+bool compare(int a, int b);   // what does a and b represent?
+```
+
+Gdy po miesiącu spojrzysz na ten kod też nie będziesz wiedzieć co on robi. Tak jest znacznie lepiej:
+
+```cpp
+int counter = 0;
+bool isValid = false;
+
+bool compare(int lhs, int rhs);
+```
+
+### Dozwolone krótkie nazwy
+
+* `i`, `j` - jako indeksy w pętlach
+* `it` - jako skrót od `iterator`
+* `el`, `elem` - jako skrót od `element` w pętlach po kolekcji
+* `lhs`, `rhs` - jako skrót od `leftHandSide` i `rightHandSide` w funkcjach porównujących
 
 ___
 
