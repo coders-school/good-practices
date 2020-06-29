@@ -1,6 +1,6 @@
 <!-- .slide: data-background="#111111" -->
 
-# Konwencje nazewnicze
+# Konwencje
 
 <a href="https://coders.school">
     <img width="500" data-src="../coders_school_logo.png" alt="Coders School" class="plain">
@@ -11,18 +11,22 @@ ___
 ## Długość linii
 
 Max 120 znaków
+<!-- .element: class="fragment fade-in" -->
 
 ## Długość funkcji
 
 Do 10 linii (+/- 5).
+<!-- .element: class="fragment fade-in" -->
 
 Jeśli jest więcej to trzeba wydzielić funkcjonalności do mniejszych funkcji.
+<!-- .element: class="fragment fade-in" -->
 
 ___
+<!-- .slide: style="font-size: 0.75em" -->
 
 ## Każdy blok (scope) = wcięcie
 
-Każdy zakres rozpoczynający się od nawiasu `{` (nawet jeśli go nie ma np. przy jednolinijkowych `if`, `for`) musi mieć dodatkowy poziom wcięcia.
+Każdy zakres rozpoczynający się od nawiasu `{` - nawet jeśli go nie ma np. przy jednolinijkowych `if`, `for` - musi mieć dodatkowy poziom wcięcia.
 
 ```cpp
 int addEven(const std::vector<int>& numbers)
@@ -52,10 +56,12 @@ int addEven(const std::vector<int>& numbers)
  }
  ```
 
-### Wyjątki
+___
 
-* Często przy instrukcji `switch/case` spotkacie się z tym, że case jest na tym samym poziomie co switch. Nie uznajemy tego za błąd.
-  
+### Wyjątki - `switch/case`
+
+Często przy instrukcji `switch/case` spotkacie się z tym, że `case` jest na tym samym poziomie co `switch`. Nie uznajemy tego za błąd.
+
 ```cpp
 switch (value) {
 case 1: doSth();
@@ -63,6 +69,10 @@ case 1: doSth();
 default: doSthElse();
 }
 ```
+
+___
+
+### Wyjątki cd.
 
 * `namespace`
 * modyfikatory dostępu `public`, `protected`, `private`
@@ -85,12 +95,12 @@ private:
 
 ___
 
-## Typu konwencji nazewniczych
+## Typy konwencji nazewniczych
 
-* lowerCamelCase
-* UpperCamelCase (PascalCase)
-* snake_case (konwencja Pythona)
-* kebab-case (rzadko spotykana w C++, często we front-endzie)
+* <!-- .element: class="fragment fade-in" --> lowerCamelCase
+* <!-- .element: class="fragment fade-in" --> UpperCamelCase (PascalCase)
+* <!-- .element: class="fragment fade-in" --> snake_case (konwencja Pythona)
+* <!-- .element: class="fragment fade-in" --> kebab-case (rzadko spotykana w C++, często we front-endzie)
 
 ___
 
@@ -111,17 +121,20 @@ ___
 
 Nie wolno stosować prefixów `_`. Każda nazwa zaczynająca się od _underscore_ jest zarezerwowana dla kompilatora.
 
+[stackoverflow.com](https://stackoverflow.com/questions/228783/what-are-the-rules-about-using-an-underscore-in-a-c-identifier)
+
 ___
 
 ## Nazwy zmiennych z prefixami - raczej zła praktyka
 
-* zmienna lokalna `l_variable`
-* parametr funkcji `p_variable`
-* pole klasy `m_variable`
-* zmienne globalne `g_variable`
-* zmienne statyczne `s_variable`
+* <!-- .element: class="fragment fade-in" --> zmienna lokalna `l_variable`
+* <!-- .element: class="fragment fade-in" --> parametr funkcji `p_variable`
+* <!-- .element: class="fragment fade-in" --> pole klasy `m_variable`
+* <!-- .element: class="fragment fade-in" --> zmienne globalne `g_variable`
+* <!-- .element: class="fragment fade-in" --> zmienne statyczne `s_variable`
 
 To może wydawać się fajne, ale niepotrzebnie dodaje 2 znaki do nazwy zmiennej. Zamiast tego lepiej stosować to co na kolejnym slajdzie.
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
@@ -129,23 +142,25 @@ ___
 
 Uwaga, to są moje opinie na podstawie moich doświadczeń.
 
-* zmienna lokalna `variable`
+* <!-- .element: class="fragment fade-in" --> zmienna lokalna: <code>variable</code>
   * Funkcje/bloki kodu mają być małe (do 10 linii). Wtedy bez trudu znajdujemy zmienne lokalne kilka linijek wyżej
-* parametr funkcji `variable`
+* <!-- .element: class="fragment fade-in" --> parametr funkcji: <code>variable</code>
   * Dla małych funkcji parametry również znajdujemy parę linijek wyżej bez scrollowania
-* pole klasy `variable_`
-  * Zmienne klasy siedzą w pliku nagłówkowym i musielibyśmy się przełączyć na inny plik, aby upewnić się, że to pole klasy. Tutaj konwencją jest `_`
-* zmienne globalne `VARIABLE`
+* <!-- .element: class="fragment fade-in" --> pole klasy: <code>variable_</code>
+  * Zmienne klasy siedzą w pliku nagłówkowym i musielibyśmy się przełączyć na inny plik, aby upewnić się, że to pole klasy. Tutaj konwencją jest postfix `_`
+* <!-- .element: class="fragment fade-in" --> zmienne globalne: <code>VARIABLE</code>
   * Zmienne/stałe pisane dużymi literami są globalne. Są argumenty, aby też tego nie robić, ale ich nie pamiętam.
-* zmienne statyczne `s_variable`
+* <!-- .element: class="fragment fade-in" --> zmienne statyczne: <code>s_variable</code>
   * Tutaj prefix `s_` może zostać, bo inne sposoby są już zajęte :)
 
-__
+___
 
 ## Co jak nazywać?
 
 Wszystko to kwestia przyjętej konwencji i może różnić się między projektami. Najważniejsze, to aby w całym projekcie było jednolicie.
-My przyjmujemy następujące założenia
+My przyjmujemy następujące założenia.
+
+___
 
 ### Klasy i struktury
 
@@ -157,15 +172,19 @@ class SuperWarrior {};  // ok
 class listenMusic {};   // bad, verb instead of noun. Maybe MusicPlayer?
 ```
 
+___
+
 ### Zmienne
 
 * lowerCamelCase
-* rzeczownik + przymiotniki (opcjonalnie)
+* rzeczownik(i) + przymiotniki (opcjonalnie)
 
 ```cpp
 SuperWarrior mightyBarbarian;   // ok
 int clickCounter;               // ok
 ```
+
+___
 
 ### Funkcje
 
@@ -176,6 +195,8 @@ int clickCounter;               // ok
 void generateStructure();       // ok
 int calculateCommonSum();       // ok
 ```
+
+___
 
 ### Pola klasy
 
@@ -191,6 +212,8 @@ class SuperWarrior
     int mana_ = 0;
 };
 ```
+
+___
 
 ### Nazwy plików
 
@@ -213,6 +236,7 @@ bool compare(int a, int b);   // what does a and b represent?
 ```
 
 Gdy po miesiącu spojrzysz na ten kod też nie będziesz wiedzieć co on robi. Tak jest znacznie lepiej:
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 int counter = 0;
@@ -220,6 +244,8 @@ bool isValid = false;
 
 bool compare(int lhs, int rhs);
 ```
+<!-- .element: class="fragment fade-in" -->
+___
 
 ### Dozwolone krótkie nazwy
 
@@ -233,14 +259,17 @@ ___
 ## Rodzaje nawiasów
 
 ### Egipskie (K&R, Stroustrup)
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 while (x == y) {
     // do sth;
 }
 ```
+<!-- .element: class="fragment fade-in" -->
 
 ### Allman
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 while (x == y)
@@ -248,8 +277,12 @@ while (x == y)
     // do sth;
 }
 ```
+<!-- .element: class="fragment fade-in" -->
 
 [Zobacz inne na Wiki i nigdy nie stosuj](https://en.wikipedia.org/wiki/Indentation_style)
+<!-- .element: class="fragment fade-in" -->
+
+___
 
 ### Moje ulubione formatowanie
 
@@ -276,6 +309,8 @@ private:
     int mana_ = 0;
 };
 ```
+
+___
 
 Listy inicjalizacyjne konstruktorów lub zbyt długie nazwy i typy parametrów funkcji trochę psują czytelność bloków kodu.
 
@@ -305,36 +340,46 @@ ___
 
 ## Doklejanie `&` i `*`
 
-* left
-* center
-* right
+* <!-- .element: class="fragment fade-in" --> left <code>int& ref</code>
+  * ok :)
+* <!-- .element: class="fragment fade-in" --> center <code>int & ref</code>
+  * osobiście to lubię
+* <!-- .element: class="fragment fade-in" --> right <code>int &ref</code>
+  * unikać
 
 ___
 
-## Operator trójargumentowy ? :
+## Operator trójargumentowy `?:`
 
 Zapis całości w jednej linii zazwyczaj jest nieczytelny
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 lhs.size() == rhs.size() ? lhs < rhs : lhs.size() < rhs.size()
 ```
+<!-- .element: class="fragment fade-in" -->
 
-Lepiej zapisać go w dwóch liniach
+Lepiej zapisać go w dwóch liniach.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 lhs.size() == rhs.size() ? lhs < rhs
                          : lhs.size() < rhs.size()
 ```
+<!-- .element: class="fragment fade-in" -->
 
 A czasami nawet 3, jeśli warunek jest długi.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.price == rhs.price
     ? lhs.value < rhs.value
     : lhs.price < rhs.price
 ```
+<!-- .element: class="fragment fade-in" -->
 
-Chociaż IMO lepiej już tutaj używać zwykłego `if`
+Chociaż IMO lepiej już w ostatnim przypadku używać zwykłego `if`.
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
@@ -342,12 +387,12 @@ ___
 
 ### `clang-format`
 
+W projekcie powinien być wkomitowany plik `.clang-format`, który zapewni, że każdy może zastosować opisane w nim formatowanie automatycznie
+
+```bash
+clang-format -style=.clang-format -i *.cpp *.hpp
+```
+
 ___
 
 ## Q&A
-
-___
-
-## Zadanie
-
-Przygotuj plik clang-format stosujący podane przeze mnie reguły. Co do nazewnictwa zmiennych będzie ciężko, ale formatowanie zrobisz.
