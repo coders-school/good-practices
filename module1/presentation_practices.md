@@ -64,7 +64,56 @@ using CompressedImage =  std::vector<std::pair<uint8_t, uint8_t>>;
 
 ___
 
-## Przekazywanie przez `const &` w celu unikania zbędnej kopii
+## Używaj deklaracji zapowiadających tam gdzie to możliwe zamiast #include
+
+Kompilator, aby używać jakiegoś obiektu potrzebuje informacji o jego rozmiarze.
+
+```cpp
+#include "Fruit.hpp"
+Fruit apple;
+```
+
+Aby można było utworzyć zmienną lokalną potrzebuje więc znać jej rozmiar, a więc musi być odpowiedni `#include`, w którym ta klasa jest zdefiniowana.
+
+### Zagadka
+
+Jaki rozmiar ma wskaźnik na int?
+
+A jaki rozmiar ma wskaźnik na Fruit?
+
+### Nieznany rozmiar obiektu
+
+Każdy wskaźnik oraz referencja mają ten sam rozmiar. Dopóki się nimi posługujemy i nie odwołujemy się do żadnych metod lub pól klasy, to informacja o jej rozmiarze lub zawartości nie jest nam potrzebne.
+
+```cpp
+class Fruit;
+
+void pass(Fruit* fruit) {
+    if (!fruit) {
+        return;
+    }
+    // do sth;
+}
+```
+
+W takim przypadku wystarczy, że powiemy kompilatorowi, że ten typ jest naszą klasą za pomocą deklaracji zapowiadającej (forward declaration). Nie trzeba wtedy stosować `#include` i przyspieszamy dzięki temu kompilację.
+
+Jeśli jednak odwołamy się do jakiegoś pola lub metody tego obiektu to kompilator powie nam, że ma niepełne informacje.
+
+```cpp
+class Fruit;
+
+unsigned getFruitPrice(Fruit* fruit) {
+    if (!fruit) {
+        return 0u;
+    }
+    return fruit->getPrice();  // compilation error
+}
+```
+
+___
+
+## Przekazuj przez `const &` w celu unikania zbędnej kopii
 
 ___
 

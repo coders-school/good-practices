@@ -19,6 +19,7 @@ ___
 * RTFM
 * No Tests - Don't Touch
 * Law of Demeter
+* CQRS
 * 90-90 rule
 * Zen of Python
 
@@ -135,6 +136,12 @@ Nigdy nie zmieniaj na raz implementacji oraz testów do niej. Jeśli testy przes
 ___
 
 ## Prawo Demeter
+
+___
+
+## CQRS
+
+### Command Query Responsibility Segregation
 
 ___
 

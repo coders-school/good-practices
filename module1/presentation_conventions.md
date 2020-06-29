@@ -311,6 +311,33 @@ ___
 
 ___
 
+## Operator trójargumentowy ? :
+
+Zapis całości w jednej linii zazwyczaj jest nieczytelny
+
+```cpp
+lhs.size() == rhs.size() ? lhs < rhs : lhs.size() < rhs.size()
+```
+
+Lepiej zapisać go w dwóch liniach
+
+```cpp
+lhs.size() == rhs.size() ? lhs < rhs
+                         : lhs.size() < rhs.size()
+```
+
+A czasami nawet 3, jeśli warunek jest długi.
+
+```cpp
+lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.price == rhs.price
+    ? lhs.value < rhs.value
+    : lhs.price < rhs.price
+```
+
+Chociaż IMO lepiej już tutaj używać zwykłego `if`
+
+___
+
 ## Autoformatowanie
 
 ### `clang-format`
@@ -318,3 +345,9 @@ ___
 ___
 
 ## Q&A
+
+___
+
+## Zadanie
+
+Przygotuj plik clang-format stosujący podane przeze mnie reguły. Co do nazewnictwa zmiennych będzie ciężko, ale formatowanie zrobisz.
