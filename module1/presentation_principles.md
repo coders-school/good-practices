@@ -287,9 +287,3 @@ Namespaces are one honking great idea -- let's do more of those!
 ___
 
 ## Q&A
-
-___
-
-## Zadanie
-
-Popraw kod stosując poznane zasady

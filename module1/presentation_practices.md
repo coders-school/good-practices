@@ -119,7 +119,7 @@ ___
 ### Odpowiedź
 <!-- .element: class="fragment fade-in" -->
 
-Rozmiar wskaźnika nie zależy typu na który wskazuje. Zazwyczaj ma on 4 lub 8 bajtów (odpowiednio dla procesorów 32 i 64 bitowych).
+Rozmiar wskaźnika nie zależy od typu na który wskazuje. Zazwyczaj ma on 4 lub 8 bajtów (odpowiednio dla procesorów 32 i 64 bitowych).
 <!-- .element: class="fragment fade-in" -->
 
 ___
