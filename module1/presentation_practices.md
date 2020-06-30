@@ -60,51 +60,77 @@ Kod pełny nazw domenowych (własnych typów) lepiej się czyta. Także osoby ni
 <!-- .element: class="fragment fade-in" -->
 
 Zobacz te 2 funkcje:
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array<uint8_t, width>, height>&);
 std::array<std::array<uint8_t, width>, height> decompressGrayscale(std::vector<std::pair<uint8_t, uint8_t>>&);
 ```
+<!-- .element: class="fragment fade-in" -->
 
 I zobacz je teraz:
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 CompressedImage compressGrayscale(const Image& bitmap);
 Image decompressGrayscale(const CompressedImage& compression);
 ```
+<!-- .element: class="fragment fade-in" -->
 
 Aby to osiągnąć wystarczy nadać inne nazwy typom w taki sposób:
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
-using Image =  std::array<std::array<uint8_t, width>, height>;
-using CompressedImage =  std::vector<std::pair<uint8_t, uint8_t>>;
+using Image = std::array<std::array<uint8_t, width>, height>;
+using CompressedImage = std::vector<std::pair<uint8_t, uint8_t>>;
 ```
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
-## Używaj deklaracji zapowiadających tam gdzie to możliwe zamiast #include
+## Forward declarations
+
+Używaj deklaracji zapowiadających tam gdzie to możliwe zamiast `#include`.
+<!-- .element: class="fragment fade-in" -->
 
 Kompilator, aby używać jakiegoś obiektu potrzebuje informacji o jego rozmiarze.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
 #include "Fruit.hpp"
-Fruit apple;
-```
 
-Aby można było utworzyć zmienną lokalną potrzebuje więc znać jej rozmiar, a więc musi być odpowiedni `#include`, w którym ta klasa jest zdefiniowana.
+int main() {
+    Fruit apple;
+    // ...
+}
+```
+<!-- .element: class="fragment fade-in" -->
+
+Aby można było utworzyć zmienną lokalną potrzebuje więc znać jej rozmiar. Musi więc mieć odpowiedni nagłówek, w którym ta klasa jest zdefiniowana, aby znać rozmiar takiej zmiennej na stosie.
+<!-- .element: class="fragment fade-in" -->
+
+___
 
 ### Zagadka
 
-Jaki rozmiar ma wskaźnik na int?
+* <!-- .element: class="fragment fade-in" --> Jaki rozmiar ma wskaźnik na <code>int</code>?
+* <!-- .element: class="fragment fade-in" --> Jaki rozmiar ma wskaźnik na <code>Fruit</code>?
 
-A jaki rozmiar ma wskaźnik na Fruit?
+### Odpowiedź
+<!-- .element: class="fragment fade-in" -->
+
+Rozmiar wskaźnika nie zależy typu na który wskazuje. Zazwyczaj ma on 4 lub 8 bajtów (odpowiednio dla procesorów 32 i 64 bitowych).
+<!-- .element: class="fragment fade-in" -->
+
+___
 
 ### Nieznany rozmiar obiektu
 
-Każdy wskaźnik oraz referencja mają ten sam rozmiar. Dopóki się nimi posługujemy i nie odwołujemy się do żadnych metod lub pól klasy, to informacja o jej rozmiarze lub zawartości nie jest nam potrzebne.
+Każdy wskaźnik oraz referencja mają ten sam rozmiar. Dopóki się nimi posługujemy i nie odwołujemy się do żadnych metod lub pól klasy, to informacja o jej rozmiarze lub zawartości nie jest nam potrzebna.
+<!-- .element: class="fragment fade-in" -->
 
 ```cpp
-class Fruit;
+class Fruit;    // class forward declaration
 
 void pass(Fruit* fruit) {
     if (!fruit) {
@@ -113,8 +139,12 @@ void pass(Fruit* fruit) {
     // do sth;
 }
 ```
+<!-- .element: class="fragment fade-in" -->
 
-W takim przypadku wystarczy, że powiemy kompilatorowi, że ten typ jest naszą klasą za pomocą deklaracji zapowiadającej (forward declaration). Nie trzeba wtedy stosować `#include` i przyspieszamy dzięki temu kompilację.
+W takim przypadku wystarczy, że powiemy kompilatorowi, że typ wskaźnika jest naszą klasą za pomocą deklaracji zapowiadającej (forward declaration). Nie trzeba wtedy stosować `#include` i przyspieszamy dzięki temu kompilację.
+<!-- .element: class="fragment fade-in" -->
+
+___
 
 Jeśli jednak odwołamy się do jakiegoś pola lub metody tego obiektu to kompilator powie nam, że ma niepełne informacje.
 
@@ -128,14 +158,65 @@ unsigned getFruitPrice(Fruit* fruit) {
     return fruit->getPrice();  // compilation error
 }
 ```
+<!-- .element: class="fragment fade-in" -->
+
+W takim przypadku potrzeba dołączyć właściwy nagłówek.
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
-## Przekazuj przez `const &` w celu unikania zbędnej kopii
+## Unikamy niejawnych konwersji
+
+```cpp
+class Apple {
+    int weight_;
+public:
+    Apple(int weight);  // possible conversion from int to Apple
+};
+
+void takeApple(Apple a);
+
+int main() {
+    takeApple(150);     // int converted implicitly into Apple
+}
+```
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
-## Stosuj `explicit`
+### Zapobieganie niejawnym konwersjom
+
+Słowo kluczowe `explicit` zabrania niejawnych konwersji. Stosuje się je przy konstruktorach, które mogą przypadkiem spowodować konwersję z typu argumentu który przyjmują.
+<!-- .element: class="fragment fade-in" -->
+
+
+```cpp
+class Apple {
+    int weight_;
+public:
+    explicit Apple(int weight);
+};
+
+void takeApple(Apple a);
+
+int main() {
+    takeApple(150);     // compilation error, expected Apple, got int
+}
+```
+<!-- .element: class="fragment fade-in" -->
+
+___
+
+## `explicit`
+
+Słowo kluczowe `explicit` stosujemy przy:
+
+* konstruktorach jednoargumentowych
+  * `explicit Apple(int weight);`
+* konstruktorach wieloargumentowych, z jednym nie-domyślnym argumentem
+  * `explicit Apple(int weight, int size = 1);`
+* operatorach konwersji
+  * `explicit operator int() const { return weight_; }`
 
 ___
 
@@ -186,10 +267,3 @@ ___
 ___
 
 ## Q&A
-
-___
-
-## Zadanie domowe
-
-Przejrzyj chociaż nagłówki z [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
-W wolnych chwilach czytaj ile się da :)
