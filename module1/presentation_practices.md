@@ -11,23 +11,40 @@ ___
 ## Zagadka
 
 Tomek dostał 3 jabłka, ale 2 zjadł. Ile jabłek ma Tomek?
+<!-- .element: class="fragment fade-in" -->
 
 ### Odpowiedź
+<!-- .element: class="fragment fade-in" -->
 
 Nie wiadomo, bo nie wiemy ile miał wcześniej zanim dostał 3 jabłka.
+<!-- .element: class="fragment fade-in" -->
 
 ### Morał
+<!-- .element: class="fragment fade-in" -->
 
 Zawsze inicjalizuj zmienne.
+<!-- .element: class="fragment fade-in" -->
+
+```cpp
+int a;
+a += 3;
+a -= 2;
+std::cout << a << '\n';
+```
+<!-- .element: class="fragment fade-in" -->
 
 ___
 
 ## Zawsze inicjalizuj zmienne
 
 ```cpp
-int index = 0;  // ok
-bool finished;  // bad
-bool finished = false;  // ok
+int index = 0;              // ok
+bool completed;             // bad
+bool finished = false;      // ok
+
+if (completed) {            // very bad
+    // ...
+}
 
 struct Node {
     Node* next = nullptr;   // ok
@@ -40,8 +57,9 @@ ___
 ## Definiuj własne typy
 
 Kod pełny nazw domenowych (własnych typów) lepiej się czyta. Także osoby nie zajmujące się programowaniem na co dzień potrafią dużo na jego podstawie wydedukować.
+<!-- .element: class="fragment fade-in" -->
 
-Zobacze te 2 funkcje:
+Zobacz te 2 funkcje:
 
 ```cpp
 std::vector<std::pair<uint8_t, uint8_t>> compressGrayscale(std::array<std::array<uint8_t, width>, height>&);
@@ -114,6 +132,10 @@ unsigned getFruitPrice(Fruit* fruit) {
 ___
 
 ## Przekazuj przez `const &` w celu unikania zbędnej kopii
+
+___
+
+## Stosuj `explicit`
 
 ___
 

@@ -217,10 +217,10 @@ ___
 
 ### Nazwy plików
 
-* lowerCamelCase
 * nazwa pliku = nazwa klasy
+* UpperCamelCase / lowerCamelCase / snake_case / kebab-case
 
-`class SuperWarrior` -> superWarrior.hpp / superWarrior.cpp
+`class SuperWarrior` -> SuperWarrior.hpp / SuperWarrior.cpp
 
 ___
 
