@@ -127,11 +127,11 @@ ___
 
 ## Nazwy zmiennych z prefixami - raczej zła praktyka
 
-* <!-- .element: class="fragment fade-in" --> zmienna lokalna `l_variable`
-* <!-- .element: class="fragment fade-in" --> parametr funkcji `p_variable`
-* <!-- .element: class="fragment fade-in" --> pole klasy `m_variable`
-* <!-- .element: class="fragment fade-in" --> zmienne globalne `g_variable`
-* <!-- .element: class="fragment fade-in" --> zmienne statyczne `s_variable`
+* <!-- .element: class="fragment fade-in" --> zmienna lokalna <code>l_variable</code>
+* <!-- .element: class="fragment fade-in" --> parametr funkcji <code>p_variable</code>
+* <!-- .element: class="fragment fade-in" --> pole klasy <code>m_variable</code>
+* <!-- .element: class="fragment fade-in" --> zmienne globalne <code>g_variable</code>
+* <!-- .element: class="fragment fade-in" --> zmienne statyczne <code>s_variable</code>
 
 To może wydawać się fajne, ale niepotrzebnie dodaje 2 znaki do nazwy zmiennej. Zamiast tego lepiej stosować to co na kolejnym slajdzie.
 <!-- .element: class="fragment fade-in" -->
