@@ -1,6 +1,6 @@
 <!-- .slide: data-background="#111111" -->
 
-# C ++ basics
+# C++ basics
 
 ## Summary
 
@@ -12,10 +12,10 @@ ___
 
 ## What do you remember from today?
 
-### Write as many passwords as possible in the chat
+### Write as many keywords as possible in the chat
 <!-- .element: class="fragment fade-in" -->
 
-1. <!-- .element: class="fragment fade-in" --> Team collaboration
+1. <!-- .element: class="fragment fade-in" --> Teamwork
 2. <!-- .element: class="fragment fade-in" --> Conventions
 3. <!-- .element: class="fragment fade-in" --> Cpp Core Guidelines
 4. <!-- .element: class="fragment fade-in" --> Good practices
@@ -26,16 +26,16 @@ ___
 
 ### Pre-work
 
-* Remember how to build a project in Debug mode
-* Watch [is a video about debugging](https://www.youtube.com/watch?v=gFCQ37jVN3g)
-* Make sure you have the debugger installed `gdb`
-* Play around with the gdb or [onlinegdb.com](http://onlinegdb.com)
+* Recall how to build a project in Debug mode
+* Watch [this video about debugging](https://www.youtube.com/watch?v=gFCQ37jVN3g)
+* Make sure you have installed `gdb` debugger
+* Play around with `gdb` or [onlinegdb.com](http://onlinegdb.com)
 
 ___
 
 ### Post-work
 
-* Apply what you've learned in all your projects and homework to date. You don't need to re-submit the PR, but ask other people for a review if you have any doubts.
-* From now on, when doing reviews to other people, pay attention to the best practices presented :)
-* From boredom, return to tasks on [Firecode.io](https://www.firecode.io) :)
-* Review the headings from [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md), and in your spare time read as much as you can :)
+* Apply what you've learned in all your previous projects and homeworks. You don't need to re-submit PR, but ask other people for a review if you have any doubts.
+* From now on, when doing reviews to other people, pay attention to the best practices presented 🙂
+* From boredom, return to tasks on [Firecode.io](https://www.firecode.io) 🙂
+* Review the headings from [CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md), and in your spare time read as much as you can 🙂

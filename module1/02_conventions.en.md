@@ -100,13 +100,13 @@ ___
 * <!-- .element: class="fragment fade-in" --> lowerCamelCase
 * <!-- .element: class="fragment fade-in" --> UpperCamelCase (PascalCase)
 * <!-- .element: class="fragment fade-in" --> snake_case (Python convention)
-* <!-- .element: class="fragment fade-in" --> kebab-case (rare in C ++, often in the front-end)
+* <!-- .element: class="fragment fade-in" --> kebab-case (rare in C++, often in the front-end)
 
 ___
 
 ## Hungarian notation - bad practice
 
-In Hungarian notation, type information is contained in the variable name. [Read on the Wiki and never apply](https://pl.wikipedia.org/wiki/Notacja_węgierska)
+In Hungarian notation, type information is contained in the variable name. [Read on the Wiki and never use it](https://pl.wikipedia.org/wiki/Notacja_węgierska)
 
 * ~~`iNumber`~~
 * ~~`szName`~~
@@ -114,7 +114,7 @@ In Hungarian notation, type information is contained in the variable name. [Read
 
 ___
 
-## Conventions for class fields
+## Conventions for class members
 
 * postfix _underscore_ `_` behind the name
 * prefix `m_` before the name
@@ -143,19 +143,19 @@ ___
 Note, these are my opinions based on my experience.
 
 * <!-- .element: class="fragment fade-in" --> local variable: <code>variable</code>
-  * Functions / code blocks should be small (up to 10 lines). Then we easily find local variables a few lines higher
+  * Functions/code blocks should be small (up to 10 lines). Then we easily find local variables a few lines higher
 * <!-- .element: class="fragment fade-in" --> function parameter: <code>variable</code>
   * For small functions, the parameters are also found a few lines higher without scrolling
-* <!-- .element: class="fragment fade-in" --> class field: <code>variable_</code>
+* <!-- .element: class="fragment fade-in" --> class member: <code>variable_</code>
   * The class variables sit in the header file and we would have to switch to a different file to make sure it's a class field. The convention here is postfix `_`
 * <!-- .element: class="fragment fade-in" --> global variables: <code>VARIABLE</code>
-  * Uppercase variables / constants are global. There are arguments for not doing this either, but I don't remember them.
+  * Uppercase variables/constants are global. There are arguments for not doing this either, but I don't remember them.
 * <!-- .element: class="fragment fade-in" --> static variables: <code>s_variable</code>
   * Prefix here `s_` can stay, because other ways are already taken :)
 
 ___
 
-## What to name?
+## How to name what?
 
 All this is a matter of convention and may differ from project to project. The most important thing is that it is uniform throughout the project.
 We make the following assumptions.
@@ -177,7 +177,7 @@ ___
 ### Variables
 
 * lowerCamelCase
-* noun (s) + adjectives (optional)
+* noun(s) + adjectives (optional)
 
 ```cpp
 SuperWarrior mightyBarbarian;   // ok
@@ -198,10 +198,10 @@ int calculateCommonSum();       // ok
 
 ___
 
-### Class fields
+### Class members
 
 * as normal variables
-* additionally after the name _underscore_ `_`
+* additionally _underscore_ `_` after the name
 
 ```cpp
 class SuperWarrior
@@ -226,7 +226,7 @@ ___
 
 ## Descriptive variable names
 
-Let's not name variables like this:
+Don't name variables like this:
 
 ```cpp
 int a = 0;          // what is a?
@@ -249,10 +249,10 @@ ___
 
 ### Allowed short names
 
-* `i`, `j` - as indices in loops
+* `i`, `j` - as indexes in loops
 * `it` - as an abbreviation of `iterator`
-* `el`, `elem` - as an abbreviation of `element` in collection loops
-* `lhs`, `rhs` - as an abbreviation of `leftHandSide` and `rightHandSide` in comparer functions
+* `el`, `elem` - as an abbreviation of `element` in loops over collection
+* `lhs`, `rhs` - as an abbreviation of `leftHandSide` and `rightHandSide` in comparing functions
 
 ___
 
@@ -286,7 +286,7 @@ ___
 
 ### My favorite formatting
 
-Attention, this is an opinion! For features - Allman. For loops, if - Egyptian. For classes - whatever. Reason:
+Note that this is an opinion! For functions - Allman. For loops and ifs - Egyptian. For classes - whatever. Reason:
 
 ```cpp
 class SuperWarrior
@@ -314,7 +314,7 @@ ___
 
 Constructor initialization lists or too long names and types of function parameters spoil the readability of the code blocks a little.
 
-In contrast:
+For contrast:
 
 ```cpp
 class SuperWarrior {
@@ -351,7 +351,7 @@ ___
 
 ## The ternary operator `?:`
 
-One line is usually unreadable
+One line notation is usually unreadable
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -378,7 +378,7 @@ lhs.name == rhs.name && lhs.amount == rhs.amount && lhs.price == rhs.price
 ```
 <!-- .element: class="fragment fade-in" -->
 
-Although IMO is better to use the usual one in the last case `if`.
+Although IMO its better to use the usual one in the last `if` case.
 <!-- .element: class="fragment fade-in" -->
 
 ___
@@ -387,7 +387,7 @@ ___
 
 ### `clang-format`
 
-The project should include a file `.clang-format`which will ensure that anyone can apply the formatting it describes automatically
+The project should include a file `.clang-format` which will ensure that anyone can apply the formatting it describes automatically
 
 ```bash
 clang-format -style=.clang-format -i *.cpp *.hpp

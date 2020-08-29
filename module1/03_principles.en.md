@@ -1,6 +1,6 @@
 <!-- .slide: data-background="#111111" -->
 
-# Programming practices
+# Programming principles
 
 <a href="https://coders.school">
     <img width="500" data-src="../coders_school_logo.png" alt="Coders School" class="plain">
@@ -8,7 +8,7 @@
 
 ___
 
-## Known and liked practices
+## Known and liked principles
 
 * <!-- .element: class="fragment fade-in" --> Fail-fast
 * <!-- .element: class="fragment fade-in" --> Scout rule
@@ -27,7 +27,7 @@ ___
 
 ___
 
-### This we will cover in Best Practice # 2
+### We will cover this in Best Practice #2
 
 * <!-- .element: class="fragment fade-in" --> SOLID
 * <!-- .element: class="fragment fade-in" --> GRASP
@@ -38,7 +38,7 @@ ___
 
 ## Fail-fast
 
-Choke the program as soon as possible in case of problems. It's better than acting and crashing it over Undefined Behavior later. Good luck finding the cause in that case.
+Stop the program as soon as possible in case of problems. It's better than it running and crashing due to Undefined Behavior later. Good luck finding the cause in that case.
 <!-- .element: class="fragment fade-in" -->
 
 ### Allowed things
@@ -66,18 +66,18 @@ void process(std::shared_ptr<int> value) {
 
 ___
 
-## Scout rule - the scout rule
+## Scout rule
 
-> Always leave the campsite at least as you found it.
+> Always leave the campsite in the same state as you found it.
 <!-- .element: class="fragment fade-in" -->
 
-Same with the code as with the camping. If you get dirty in the code - you have to clean it up. Cleaning up after others is also very welcome.
+Same with the code as with the camping. If you do mess in the code - you have to clean it up. Cleaning up after others is also very welcome.
 <!-- .element: class="fragment fade-in" -->
 
 If you touch someone's code, e.g. by just adding one line - try to improve it.
 <!-- .element: class="fragment fade-in" -->
 
-Cleaning is to be in a separate commite.
+Cleaning should be in a separate commit.
 <!-- .element: class="fragment fade-in" -->
 
 ### Pros
@@ -93,17 +93,17 @@ ___
 ### Don't Repeat Yourself
 <!-- .element: class="fragment fade-in" -->
 
-Often, duplications are caused by a simple "copipasty" operation.
+Often, duplications are caused by a simple copy-paste operation.
 <!-- .element: class="fragment fade-in" -->
 
-Code that is the same or similar in more than 1 place should be extracted into a function and called that function there
+Code that is the same or similar in more than 1 place should be extracted into a function and call that function in this place
 <!-- .element: class="fragment fade-in" -->
 
 ### Pros
 <!-- .element: class="fragment fade-in" -->
 
 * <!-- .element: class="fragment fade-in" --> easier refactoring - change only in one place
-* <!-- .element: class="fragment fade-in" --> less room for mistakes. There is no risk that we will not change all occurrences once we discover a bug
+* <!-- .element: class="fragment fade-in" --> less room for mistakes. There is no risk that we will forget some occurrences once we discover a bug
 
 ___
 
@@ -112,7 +112,7 @@ ___
 ### Don't Reinvent The Wheel
 <!-- .element: class="fragment fade-in" -->
 
-Do not reinvent the wheel and use ready-made libraries that provide the given functionality.
+Do not reinvent the wheel and use already made libraries that provide given functionality.
 <!-- .element: class="fragment fade-in" -->
 
 ### Pros
@@ -125,12 +125,9 @@ Do not reinvent the wheel and use ready-made libraries that provide the given fu
 ___
 <!-- .slide: style="font-size: 0.9em" -->
 
-## KISS / BUZI
+## KISS
 
 ### Keep It Simple, Stupid
-<!-- .element: class="fragment fade-in" -->
-
-### No Record Freaks, Idiot
 <!-- .element: class="fragment fade-in" -->
 
 When writing the code, we do not force the tricks and novelties that may make it more universal and easy for future development, but will reduce its readability.
@@ -139,7 +136,7 @@ When writing the code, we do not force the tricks and novelties that may make it
 Many seniors have a problem with this and complicate the code unnecessarily. They know from experience that this will make the code easier to modify in the future. What if it will never be modified afterwards, but still read many times?
 <!-- .element: class="fragment fade-in" -->
 
-We introduce each "improvement" only when there is such a need. We don't write anything "in stock". See - YAGNI.
+We introduce each "improvement" only when there is such a need. We don't write anything "in advance". See - YAGNI.
 <!-- .element: class="fragment fade-in" -->
 
 ### Pros
@@ -157,7 +154,7 @@ ___
 You won't need this. We don't write code in advance, thinking it will come in handy soon. In this way, we generate dead code that is never and probably will not be used.
 <!-- .element: class="fragment fade-in" -->
 
-If in the future a given functionality is needed, another person will probably implement it (even you will forget that you have already written something after a month) and will write it again.
+If in the future when a given functionality will be needed, another person will probably implement it (even you will forget that you have already written something after a month and will write it again).
 <!-- .element: class="fragment fade-in" -->
 
 ### Pros
@@ -169,17 +166,17 @@ The less code the better:
 * <!-- .element: class="fragment fade-in" --> shorter compilation time
 * <!-- .element: class="fragment fade-in" --> less complicated dependencies
 * <!-- .element: class="fragment fade-in" --> less to analyze
-* <!-- .element: class="fragment fade-in" --> less to remember (that something was taken as a spare)
+* <!-- .element: class="fragment fade-in" --> less to remember (that something was made in advance)
 * <!-- .element: class="fragment fade-in" --> faster tool use (<code>grep</code> or <code>Ctrl+F</code> have less to scan)
 
 ___
 
 ## RTFM
 
-### Read The F * cking Manual;)
+### Read The F*cking Manual 😉
 <!-- .element: class="fragment fade-in" -->
 
-Before you inundate people with questions about a given functionality / tool, read the manual.
+Before you start spamming people with questions about a given functionality/tool, read the manual.
 <!-- .element: class="fragment fade-in" -->
 
 In Linux, for the tool `tool` use `tool --help` and `man tool`.
@@ -191,7 +188,7 @@ If, after reading the documentation, you still don't know what to do, then ask o
 ### Pros
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> More experienced people often have a tight calendar, so they will be grateful if you find a solution on their own or briefly;)
+* <!-- .element: class="fragment fade-in" --> More experienced people often have a tight calendar, so they will be grateful if you find a solution on your own or briefly explain problem 😉
 
 ___
 
@@ -219,18 +216,18 @@ ___
 ### Command Query Responsibility Segregation
 <!-- .element: class="fragment fade-in" -->
 
-Separate write from reading.
+Separate writing from reading.
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> <strong> Query </strong> - getting (reading) data - getters
-* <!-- .element: class="fragment fade-in" --> <strong> Command </strong> - action on data (write)
+* <!-- .element: class="fragment fade-in" --> <strong>Query</strong> - getting (reading) data - getters
+* <!-- .element: class="fragment fade-in" --> <strong>Command</strong> - working on data (write)
 
 We should avoid methods that do both because:
 <!-- .element: class="fragment fade-in" -->
 
 > Asking a question should not change the answer
 >
-> - * Bertrand Meyer *
+> -- * Bertrand Meyer *
 <!-- .element: class="fragment fade-in" -->
 
 ___
@@ -246,7 +243,7 @@ The remaining 10% of the tasks will be completed in the remaining 90% of the tim
 Useful when assessing the progress of work.
 <!-- .element: class="fragment fade-in" -->
 
-At first the work goes quite briskly (the general outline of the task), but it is only in the process that unthought out boundary cases are discovered, due to which the task will take longer time expected.
+At first the work goes quite easy (the general outline of the task), but then edge cases get discovered which were unthought of before, due to which the task will take longer time expected.
 <!-- .element: class="fragment fade-in" -->
 
 ___

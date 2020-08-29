@@ -84,7 +84,7 @@ Sprzątanie ma być w osobnym commicie.
 <!-- .element: class="fragment fade-in" -->
 
 * <!-- .element: class="fragment fade-in" --> kod może być tylko coraz czytelniejszy
-* <!-- .element: class="fragment fade-in" --> nie robimy długu technicznego, który kiedyś trzeba będzie spałcić
+* <!-- .element: class="fragment fade-in" --> nie robimy długu technicznego, który kiedyś trzeba będzie spłacić
 
 ___
 

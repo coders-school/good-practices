@@ -189,7 +189,6 @@ ___
 Słowo kluczowe `explicit` zabrania niejawnych konwersji. Stosuje się je przy konstruktorach, które mogą przypadkiem spowodować konwersję z typu argumentu który przyjmują.
 <!-- .element: class="fragment fade-in" -->
 
-
 ```cpp
 class Apple {
     int weight_;
@@ -229,17 +228,17 @@ ___
 * F.1: "Package" meaningful operations as carefully named functions
 * F.2: A function should perform a single logical operation
 * F.3: Keep functions short and simple
-* F.4: If a function may have to be evaluated at compile time, declare it constexpr
-* F.5: If a function is very small and time-critical, declare it inline
-* F.6: If your function may not throw, declare it noexcept
+* F.4: If a function may have to be evaluated at compile time, declare it `constexpr`
+* F.5: If a function is very small and time-critical, declare it `inline`
+* F.6: If your function may not throw, declare it `noexcept`
 * F.9: Unused parameters should be unnamed
 * F.16: For "in" parameters, pass cheaply-copied types by value and others by reference to const
 * F.17: For "in-out" parameters, pass by reference to non-const
 * F.20: For "out" output values, prefer return values to output parameters
 * F.21: To return multiple "out" values, prefer returning a struct or tuple
-* F.60: Prefer T* over T& when "no argument" is a valid option
-* F.26: Use a unique_ptr<T> to transfer ownership where a pointer is needed
-* F.27: Use a shared_ptr<T> to share ownership
+* F.60: Prefer `T*` over `T&` when "no argument" is a valid option
+* F.26: Use a `unique_ptr<T>` to transfer ownership where a pointer is needed
+* F.27: Use a `shared_ptr<T>` to share ownership
 
 ___
 

@@ -8,18 +8,18 @@
 
 ___
 
-## Mystery
+## Riddle
 
-Tomek got 3 apples, but he ate 2. How many apples does Tom have?
+Tom got 3 apples, but he ate 2. How many apples does Tom have?
 <!-- .element: class="fragment fade-in" -->
 
-### Reply
+### The answer
 <!-- .element: class="fragment fade-in" -->
 
 We don't know, because we don't know how many he had before he got 3 apples.
 <!-- .element: class="fragment fade-in" -->
 
-### Moral
+### Conclusion
 <!-- .element: class="fragment fade-in" -->
 
 Always initialize variables.
@@ -59,7 +59,7 @@ ___
 Code full of domain names (own types) is easier to read. Also people who do not deal with programming on a daily basis can deduce a lot from it.
 <!-- .element: class="fragment fade-in" -->
 
-Check out these 2 features:
+Check out these 2 functions:
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -68,7 +68,7 @@ std::array<std::array<uint8_t, width>, height> decompressGrayscale(std::vector<s
 ```
 <!-- .element: class="fragment fade-in" -->
 
-And see them now:
+And compare to this:
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -77,7 +77,7 @@ Image decompressGrayscale(const CompressedImage& compression);
 ```
 <!-- .element: class="fragment fade-in" -->
 
-To achieve this, it is enough to give different names to the types like this:
+To achieve this, you just have to give different names to the types like this:
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -90,7 +90,7 @@ ___
 
 ## Forward declarations
 
-Use forward declarations where possible instead `#include`.
+Use forward declarations where possible instead of `#include`.
 <!-- .element: class="fragment fade-in" -->
 
 In order to use an object, the compiler needs information about its size.
@@ -106,17 +106,17 @@ int main() {
 ```
 <!-- .element: class="fragment fade-in" -->
 
-So in order to be able to create a local variable, I need to know its size. So it must have a proper header where this class is defined to know the size of such a variable on the stack.
+So in order to be able to create a local variable, it needs to know its size. So it must have a proper header where this class is defined to know the size of such a variable on the stack.
 <!-- .element: class="fragment fade-in" -->
 
 ___
 
-### Mystery
+### Riddle
 
 * <!-- .element: class="fragment fade-in" --> What size is the pointer on <code>int</code>?
 * <!-- .element: class="fragment fade-in" --> What size is the pointer on <code>Fruit</code>?
 
-### Reply
+### Answer
 <!-- .element: class="fragment fade-in" -->
 
 The size of the pointer does not depend on the type it points to. Usually it is 4 or 8 bytes long (for 32 and 64 bit processors respectively).
@@ -124,9 +124,9 @@ The size of the pointer does not depend on the type it points to. Usually it is 
 
 ___
 
-### Object size unknown
+### Unknown object size
 
-Each indicator and reference are of the same size. As long as we use them and do not refer to any methods or fields of the class, we do not need information about its size or content.
+Each pointer and reference have the same size. As long as we use them and do not refer to any methods or fields of the class, we do not need information about its size or content.
 <!-- .element: class="fragment fade-in" -->
 
 ```cpp
@@ -141,7 +141,7 @@ void pass(Fruit* fruit) {
 ```
 <!-- .element: class="fragment fade-in" -->
 
-In that case, we just need to tell the compiler that the pointer type is our class by means of a forward declaration. You do not need to apply then `#include` and we speed up compilation.
+In that case, we just need to tell the compiler that the pointer type is our class by means of a forward declaration. You do not need to apply `#include` and we speed up compilation.
 <!-- .element: class="fragment fade-in" -->
 
 ___
@@ -186,9 +186,8 @@ ___
 
 ### Avoiding Implicit Conversions
 
-Key word `explicit` prohibits implicit conversions. They are used with constructors that may accidentally convert from the type of argument they take.
+Keyword `explicit` prohibits implicit conversions. They are used with constructors that may accidentally convert from the type of argument they take.
 <!-- .element: class="fragment fade-in" -->
-
 
 ```cpp
 class Apple {
@@ -209,7 +208,7 @@ ___
 
 ## `explicit`
 
-Key word `explicit` we use for:
+Keyword `explicit` is used for:
 
 * unary constructors
   * `explicit Apple(int weight);`
@@ -229,17 +228,17 @@ ___
 * F.1: "Package" meaningful operations as carefully named functions
 * F.2: A function should perform a single logical operation
 * F.3: Keep functions short and simple
-* F.4: If a function may have to be evaluated at compile time, declare it constexpr
-* F.5: If a function is very small and time-critical, declare it inline
-* F.6: If your function may not throw, declare it noexcept
+* F.4: If a function may have to be evaluated at compile time, declare it `constexpr`
+* F.5: If a function is very small and time-critical, declare it `inline`
+* F.6: If your function may not throw, declare it `noexcept`
 * F.9: Unused parameters should be unnamed
 * F.16: For "in" parameters, pass cheaply-copied types by value and others by reference to const
 * F.17: For "in-out" parameters, pass by reference to non-const
 * F.20: For "out" output values, prefer return values ​​to output parameters
 * F.21: To return multiple "out" values, prefer returning a struct or tuple
-* F.60: Prefer T * over T & when "no argument" is a valid option
-* F.26: Use a unique_ptr <T> to transfer ownership where a pointer is needed
-* F.27: Use a shared_ptr <T> to share ownership
+* F.60: Prefer `T*` over `T&` when "no argument" is a valid option
+* F.26: Use a `unique_ptr<T>` to transfer ownership where a pointer is needed
+* F.27: Use a `shared_ptr<T>` to share ownership
 
 ___
 
