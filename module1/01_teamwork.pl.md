@@ -70,7 +70,7 @@ ___
 ### Przebieg estymacji
 
 * <!-- .element: class="fragment fade-in" --> Całym zespołem omawiamy sobie jedno wybrane zadanie, aby mieć pewność, że wszyscy rozumieją je tak samo.
-* <!-- .element: class="fragment fade-in" --> Gdy wszyscy są gotowi _jednocześnie_ wyciągają kartę ze swoją estymatą, aby nie sugerować się innymi
+* <!-- .element: class="fragment fade-in" --> Gdy wszyscy są gotowi jednocześnie wyciągają kartę ze swoją estymatą, aby nie sugerować się innymi
 * <!-- .element: class="fragment fade-in" --> Jeśli rozbieżności są duże, to znaczy, że członkowie zespołu mają różne zrozumienie zadania i trzeba jeszcze o nim podyskutować. Warto zapytać osoby z najmniejszą i największą estymatą dlaczego tyle dają.
 * <!-- .element: class="fragment fade-in" --> Jeśli rozbieżności są małe to można je uśrednić lub wspólnie zgodzić się na którąś wartość (zazwyczaj wyższą)
 

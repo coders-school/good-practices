@@ -26,7 +26,7 @@ ___
 
 ## Each block (scope) = indent
 
-Any range that begins with parentheses `{` - even if it is not present, e.g. for one-line ones `if`, `for` - must have an additional level of indentation.
+Any scope that begins with parentheses `{` - even if it is not present, e.g. for one-line ones `if`, `for` - must have an additional level of indentation.
 
 ```cpp
 int addEven(const std::vector<int>& numbers)
@@ -60,7 +60,7 @@ ___
 
 ### Exceptions - `switch/case`
 
-Often with instructions `switch/case` you will meet with that `case` is on the same level as `switch`. We do not consider this a mistake.
+Often with instructions `switch/case` you will see that `case` is on the same level as `switch`. We do not consider this a mistake.
 
 ```cpp
 switch (value) {

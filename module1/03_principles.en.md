@@ -188,7 +188,7 @@ If, after reading the documentation, you still don't know what to do, then ask o
 ### Pros
 <!-- .element: class="fragment fade-in" -->
 
-* <!-- .element: class="fragment fade-in" --> More experienced people often have a tight calendar, so they will be grateful if you find a solution on your own or briefly explain problem 😉
+* <!-- .element: class="fragment fade-in" --> More experienced people often have a tight calendar, so they will be grateful if you find a solution on your own or shortly explain problem 😉
 
 ___
 
@@ -243,7 +243,7 @@ The remaining 10% of the tasks will be completed in the remaining 90% of the tim
 Useful when assessing the progress of work.
 <!-- .element: class="fragment fade-in" -->
 
-At first the work goes quite easy (the general outline of the task), but then edge cases get discovered which were unthought of before, due to which the task will take longer time expected.
+At first the work goes quite easy (the general outline of the task), but then edge cases get discovered which were unthought of before, due to which task will take longer time than expected.
 <!-- .element: class="fragment fade-in" -->
 
 ___

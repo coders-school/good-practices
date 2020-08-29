@@ -70,9 +70,9 @@ ___
 ### The course of the estimation
 
 * <!-- .element: class="fragment fade-in" --> We discuss one selected task with the whole team to make sure that everyone understands it in the same way.
-* <!-- .element: class="fragment fade-in" --> When everyone is ready they _simultaneously_ draw the card with their estimate so nobody is influenced by others
-* <!-- .element: class="fragment fade-in" --> If the discrepancy is large, it means that team members have a different understanding of the task and still need to be discussed. It is worth asking people with the lowest and highest estimate why they give so much.
-* <!-- .element: class="fragment fade-in" --> If the discrepancies are small, you can average them or agree to some value (usually higher)
+* <!-- .element: class="fragment fade-in" --> When everyone is ready they simultaneously draw the card with their estimate so nobody is influenced by others
+* <!-- .element: class="fragment fade-in" --> If the divergence is large, it means that team members have a different understanding of the task and still need to be discussed. It is worth asking people with the lowest and highest estimate why they give so much.
+* <!-- .element: class="fragment fade-in" --> If the divergences are small, you can average them or agree to some value (usually higher)
 
 Look for online Scrum Poker tools and use them to estimate tasks in Planning.
 <!-- .element: class="fragment fade-in" -->
